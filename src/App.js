@@ -7,7 +7,7 @@ class App extends Component {
   state = {
     value: "",
 
-    ops:[".","+","*","/","-"],
+    ops: [".", "+", "*", "/", "-"],
   };
 
   equal = () => {
@@ -16,14 +16,15 @@ class App extends Component {
   };
 
   getvalue = (e) => {
-    const x=this.state.value+e.target.innerText;
-    const y= this.state.ops;
-  
-    if(y.includes(x.charAt(0)) || (y.includes(x.charAt(x.length-2))&&y.includes(x.charAt(x.length-1))) )
-    return;
-    else
-    this.setState({ value: x });
-  
+    const x = this.state.value + e.target.innerText;
+    const y = this.state.ops;
+
+    if (
+      y.includes(x.charAt(0)) ||
+      (y.includes(x.charAt(x.length - 2)) && y.includes(x.charAt(x.length - 1)))
+    )
+      return;
+    else this.setState({ value: x });
   };
 
   clear = () => {
@@ -38,7 +39,7 @@ class App extends Component {
     return (
       <div className="app">
         <div className="wrapper">
-        <h1 className="header">React Calculator</h1>
+          <h1 className="header">React Calculator</h1>
           <div className="input">{this.state.value || 0}</div>
           <div className="d-flex justify-content-between ">
             <button onClick={this.getvalue}>7</button>
